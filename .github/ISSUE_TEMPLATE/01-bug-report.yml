@@ -1,0 +1,52 @@
+name: Bug report
+description: Report unexpected behavior with steps to reproduce it.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing issues before submitting. Remove credentials, personal data,
+        and sensitive logs. Do not report vulnerability details publicly; follow
+        the affected project's private reporting route and the
+        [shared security routing guidance](https://github.com/Kian-Abdalkhani/.github/blob/main/SUPPORT.md#suspected-vulnerabilities).
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: What happened?
+      description: Describe the unexpected behavior and its impact.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: Describe what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps or minimal example
+      description: Provide enough detail to reproduce the problem.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Include the affected release or commit if known.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Relevant environment
+      description: Include the OS, runtime, tool, or browser only as relevant.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs
+      description: Remove credentials, personal data, and sensitive details first.
+      render: text
+  - type: textarea
+    id: context
+    attributes:
+      label: Screenshots or additional context
+      description: Attach useful screenshots or links with sensitive details removed.

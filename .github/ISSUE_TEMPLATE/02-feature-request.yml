@@ -1,0 +1,39 @@
+name: Feature request
+description: Explain a problem and the outcome you would like to see.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing requests before submitting. Remove credentials, personal
+        data, and sensitive logs. For suspected vulnerabilities, follow the
+        affected project's private reporting route and the
+        [shared security routing guidance](https://github.com/Kian-Abdalkhani/.github/blob/main/SUPPORT.md#suspected-vulnerabilities).
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: Explain the underlying need and who would benefit.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Proposed outcome
+      description: Describe the behavior or result you would like.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe workarounds or other approaches and their limits.
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or context
+      description: Add useful examples, references, or screenshots.
+  - type: input
+    id: contribution
+    attributes:
+      label: Willingness to contribute
+      description: If you would like to help, describe how. This is optional.

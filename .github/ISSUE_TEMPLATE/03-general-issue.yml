@@ -1,0 +1,41 @@
+name: General issue
+description: Ask a question or report a documentation problem.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the project's documentation and existing issues. Remove credentials,
+        personal data, and sensitive logs. Use the project's private reporting
+        route for vulnerabilities; see the
+        [shared security routing guidance](https://github.com/Kian-Abdalkhani/.github/blob/main/SUPPORT.md#suspected-vulnerabilities).
+        For help channels, read the
+        [shared support guidance](https://github.com/Kian-Abdalkhani/.github/blob/main/SUPPORT.md).
+  - type: textarea
+    id: question
+    attributes:
+      label: Question or documentation problem
+      description: Explain your question or what needs clarification or correction.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Relevant context
+      description: Explain what you are trying to do and where the problem arises.
+    validations:
+      required: true
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What you have tried
+      description: Include relevant troubleshooting or documentation you consulted.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Version or environment
+      description: Include the version, commit, OS, runtime, tool, or browser as relevant.
+  - type: textarea
+    id: links
+    attributes:
+      label: Useful links or examples
+      description: Link relevant documentation, issues, or a minimal example.

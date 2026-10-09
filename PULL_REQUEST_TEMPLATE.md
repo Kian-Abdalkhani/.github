@@ -1,24 +1,23 @@
-## Description
-Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context.
+## Summary
 
-Fixes # (issue)
+<!-- What changed, why, and what behavior should the reviewer expect? -->
 
-## Type of change
-Please delete options that are not relevant.
+## Related issue
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
+<!-- Link an issue if relevant. Use Fixes #123 only when this PR resolves it. -->
 
-## How Has This Been Tested?
-Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce.
+## Validation
 
-## Checklist:
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
+<!-- Describe the checks you ran and their results.
+For documentation/configuration changes, describe the relevant review or preview.
+If a check does not apply or could not be run, explain why. -->
+
+## Compatibility and follow-up
+
+<!-- Note breaking changes, migration steps, or remaining work if relevant. -->
+
+## Checklist
+
+- [ ] I reviewed the diff for unintended changes and sensitive information.
+- [ ] I followed the project's contribution guidance.
+- [ ] I described relevant validation and any limitations above.

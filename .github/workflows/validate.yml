@@ -1,0 +1,66 @@
+name: Validate shared defaults
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: "24"
+
+      - name: Install YAML parser
+        run: python -m pip install 'ruamel.yaml==0.19.1'
+
+      - name: Validate YAML, issue forms, paths, and internal links
+        run: python scripts/validate-templates.py
+
+      - name: Check validator failure cases
+        run: python scripts/test-validation.py
+
+      - name: Lint Markdown
+        run: npx --yes markdownlint-cli2@0.23.3 '**/*.md'
+
+      - name: Install actionlint
+        env:
+          ACTIONLINT_VERSION: "1.7.12"
+          ACTIONLINT_SHA256: "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
+        run: |
+          archive="actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          tool_dir="${RUNNER_TEMP}/actionlint"
+          mkdir -p "$tool_dir"
+          curl --fail --silent --show-error --location --retry 3 \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/${archive}" \
+            --output "${tool_dir}/${archive}"
+          cd "$tool_dir"
+          echo "${ACTIONLINT_SHA256}  ${archive}" | sha256sum --check --strict
+          tar -xzf "$archive" actionlint
+          echo "$tool_dir" >> "$GITHUB_PATH"
+
+      - name: Lint GitHub Actions workflows
+        run: actionlint
